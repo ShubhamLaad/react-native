@@ -5,7 +5,7 @@ export default function FoodImage({ foodName, foodImage, style }) {
   return (
     <View style={style}>
       <Image source={foodImage} style={styles.foodImage} resizeMode="cover" />
-      <Text>{foodName}</Text>
+      <Text style={styles.foodName}>{foodName}</Text>
     </View>
   );
 }
@@ -15,9 +15,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
   },
-  foodImageWrap: {
-    height: 100,
-    width: '100%',
-  }
-
+  foodName: {
+    width: '80%',
+    margin: 'auto',
+    marginTop: -10,
+    backgroundColor: '#002060',
+    color: '#fff',
+    zIndex: 10,
+    lineHeight: 20,
+    textAlign: 'center',
+  },
 });

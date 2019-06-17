@@ -11,15 +11,15 @@ const appetizers = require('../../images/appetizers.jpg');
 
 const FOOD_LIST = [{
   id: 1,
-  foodName: 'soup',
+  foodName: 'Soup',
   foodImage: soup,
 }, {
   id: 2,
-  foodName: 'appetizers',
+  foodName: 'Appetizers',
   foodImage: appetizers,
 }, {
   id: 3,
-  foodName: 'mainCourse',
+  foodName: 'Main Course',
   foodImage: mainCourse,
 },];
 
@@ -27,10 +27,6 @@ export default class Home extends React.PureComponent {
   renderFoodList = ({ item, index }) => (
     <FoodImage foodImage={item.foodImage} foodName={item.foodName} style={{ width: '50%' }} />
   );
-
-  onAlert = () => {
-    Alert.alert('hi')
-  }
 
   render() {
     return (
@@ -56,15 +52,11 @@ export default class Home extends React.PureComponent {
                   key={item.id}
                   foodImage={item.foodImage}
                   foodName={item.foodName}
-                  style={{ width: index === FOOD_LIST.length - 1 ? '100%' : '50%' }}
+                  style={{ width: '50%', marginBottom: 20 }}
                 />
               )
             }
           </View>
-          <Button
-            title="Add some friends"
-            onPress={this.onAlert}
-          />
         </ScrollView>
       </View>
     );
