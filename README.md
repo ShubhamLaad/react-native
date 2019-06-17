@@ -7,4 +7,5 @@ How to run app:
 2. Need to have stable node.js
 3. Install global dependency
 ``` npm i -g expo expo-cli ```
+4. Run app
 ``` npm start ```
