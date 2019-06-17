@@ -6,6 +6,8 @@ How to run app:
 1. Clone the app
 2. Need to have stable node.js
 3. Install global dependency
-``` npm i -g expo expo-cli ```
-4. Run app
+``` npm install -g expo expo-cli ```
+4. Install project dependency
+``` npm install ```
+5. Run app
 ``` npm start ```
