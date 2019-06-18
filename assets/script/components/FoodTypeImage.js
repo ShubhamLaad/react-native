@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, Alert } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 
-export default function FoodImage({ foodName, foodImage, style }) {
+export default function FoodTypeImage({ foodName, foodImage, style, onImagePress }) {
   return (
-    <View style={style}>
+    <TouchableOpacity
+      style={style}
+      onPress={onImagePress}
+    >
       <Image source={foodImage} style={styles.foodImage} resizeMode="cover" />
       <Text style={styles.foodName}>{foodName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

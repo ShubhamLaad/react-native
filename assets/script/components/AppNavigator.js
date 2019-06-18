@@ -1,13 +1,28 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import Home from './Home';
-import Friends from './Friends';
+import CategoryListScreen from '../scrrens/CategoryListScreen';
+import CategoryDetailsScreen from '../scrrens/CategoryDetailsScreen';
+import pagesConstant from '../constants/pages.constant';
+import CustomHeader from './CustomHeader';
+import React from 'react';
 
-const StackNavigator = createStackNavigator({
-  Home: { screen: Home },
-  Friends: { screen: Friends },
-}, {
-  initialRouteName: 'Home'
-});
+const StackNavigator = createStackNavigator(
+  {
+    CategoryListScreen: {
+      screen: CategoryListScreen,
+      navigationOptions: {
+        header: props => <CustomHeader {...props} />
+      }
+    },
+    CategoryDetailsScreen: {
+      screen: CategoryDetailsScreen,
+      navigationOptions: {
+        header: props => <CustomHeader {...props} />
+      }
+    },
+  }, {
+    initialRouteName: pagesConstant.CategoryListScreen,
+  }
+);
 
 const AppNavigator = createAppContainer(StackNavigator);
 
