@@ -1,22 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-const soup = require('../../images/soup.jpg');
-
-
-const CATEGORY_DETAILS = {
-  categoryId: 1,
-  categoryName: 'Soup',
-  categoryImage: soup,
-  foodList: [{
-    foodId: 1,
-    foodName: 'Tamato Soup',
-    foodImage: soup,
-    foodPrice: 2,
-    foodDetails: 'Made of tamato',
-  }]
-};
+import CATEGORY_DETAILS from '../json/CategoryDetailsJSON';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class CategoryDetailsScreen extends React.Component {
   constructor() {
@@ -37,17 +23,17 @@ export default class CategoryDetailsScreen extends React.Component {
           </View>
           <Icon name="arrow-down" size={30} color="#fff" onPress={() => { console.log('press') }} />
         </View>
-        <View>
+        <ScrollView>
           {categoryDetails.foodList.map((food) =>
-            <View key={food.foodId} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View key={food.foodId} style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
               <View>
                 <Text style={{ color: '#002060', fontSize: 20, fontWeight: '600' }}>{food.foodName}</Text>
                 <Text style={{ color: '#002060', fontSize: 14 }}>{food.foodDetails}</Text>
               </View>
-              <Image source={food.foodImage} resizeMode="cover" style={{ width: 50 }} />
+              <Image source={food.foodImage} resizeMode="cover" style={{ width: 50, height: 50 }} />
             </View>
           )}
-        </View>
+        </ScrollView>
       </View>
     );
   }

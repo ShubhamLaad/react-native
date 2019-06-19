@@ -2,27 +2,9 @@ import React from 'react';
 import {
   StyleSheet, Text, View, Image, ScrollView, FlatList, Button, Alert
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import FoodTypeImage from '../components/FoodTypeImage';
 import pagesConstant from '../constants/pages.constant';
-
-const soup = require('../../images/soup.jpg');
-const mainCourse = require('../../images/main-course.jpg');
-const appetizers = require('../../images/appetizers.jpg');
-
-const Categoty_LIST = [{
-  categoryId: 1,
-  categoryName: 'Soup',
-  categoryImage: soup,
-}, {
-  categoryId: 2,
-  categoryName: 'Appetizers',
-  categoryImage: appetizers,
-}, {
-  categoryId: 3,
-  categoryName: 'Main Course',
-  categoryImage: mainCourse,
-},];
+import Categoty_LIST from '../json/CategoryListJSON';
 
 export default class CategoryListScreen extends React.PureComponent {
   onImagePress = (foodTypeId) => {
@@ -40,7 +22,7 @@ export default class CategoryListScreen extends React.PureComponent {
                   key={item.categoryId}
                   foodImage={item.categoryImage}
                   foodName={item.categoryName}
-                  style={{ width: '50%', marginBottom: 20 }}
+                  style={{ width: '50%', marginBottom: 20, alignItems: 'center' }}
                   onImagePress={this.onImagePress}
                 />
               )

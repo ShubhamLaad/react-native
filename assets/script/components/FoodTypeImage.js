@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   },
   foodName: {
     width: '80%',
-    margin: 'auto',
     marginTop: -10,
     backgroundColor: '#002060',
     color: '#fff',

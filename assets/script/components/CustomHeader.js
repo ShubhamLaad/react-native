@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, View, Image, ScrollView, FlatList, Button, Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TextInput, RectButton } from 'react-native-gesture-handler';
 import pagesConstant from '../constants/pages.constant';
 const LOGO = require('../../images/logo.png');
 
@@ -19,10 +19,12 @@ export default class CustomHeader extends React.PureComponent {
   render() {
     return (
       <View style={styles.header}>
-        <TouchableWithoutFeedback style={styles.row} onPress={() => { this.props.navigation.navigate(pagesConstant.CategoryListScreen); }}>
-          <Image source={LOGO} style={{width: 30, height: 30}} resizeMode="cover" />
-          <Text style={{ color: '#002060', marginLeft: 10 }}>Delhi Garden</Text>
-        </TouchableWithoutFeedback>
+        <RectButton onPress={() => { this.props.navigation.navigate(pagesConstant.CategoryListScreen); }}>
+          <View style={styles.row}>
+            <Image source={LOGO} style={{ width: 30, height: 30 }} resizeMode="cover" />
+            <Text style={{ color: '#002060', marginLeft: 10 }}>Delhi Garden</Text>
+          </View>
+        </RectButton >
         <View style={styles.row}>
           <Icon
             name="search"
@@ -38,7 +40,7 @@ export default class CustomHeader extends React.PureComponent {
         </View>
         {this.state.showSearchField && <View style={styles.searchFieldWrap}>
           <TextInput
-            style={{ lineHeight: 24, fontSize: 14, paddingLeft: 10, paddingRight: 10, width: '90%' }}
+            style={{ lineHeight: 24, fontSize: 16, padding: 10, width: '90%' }}
             placeholder="Search Category"
             onChangeText={(text) => this.setState({ text })}
           />
@@ -56,10 +58,11 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    height: 50,
     alignItems: 'flex-end',
     padding: 10,
+    paddingTop: 30,
     position: 'relative',
+    backgroundColor: '#fff',
   },
   icon: {
     fontSize: 15,
@@ -74,13 +77,13 @@ const styles = StyleSheet.create({
   },
   searchFieldWrap: {
     position: 'absolute',
-    top: 50,
+    top: 70,
     left: 20,
     right: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 2, height: 2 },
+    shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 0.4,
-    shadowRadius: 2,
+    shadowRadius: 4,
     flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'center',
